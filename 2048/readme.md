@@ -7,10 +7,10 @@
 具体代码如下：
 
 >#-*- coding:utf-8 -*-
->
->import curses
->from random import randrange, choice  # >generate and place new tile
->from collections import defaultdict
+
+import curses
+from random import randrange, choice  # >generate and place new tile
+from collections import defaultdict
 
 用到curses 包的两个方法 curses.use_default_colors()和curses.wrapper(main),curses.use_default_colors()设置默认颜色，curses.wrapper(main)调用主函数同时 restoring normal keyboard/screen behavior on error.randrange 生成制定范围的随机数，本项目用来设置生成2,4的比率为80:20。choice随即选择一个元素
 
