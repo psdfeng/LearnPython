@@ -20,43 +20,49 @@
 
 把用户的输入关联到程序行为，用以驱动程序。处理游戏主逻辑的时候我们会用到一种十分常用的技术：状态机，或者更准确的说是有限状态机（FSM）2048 游戏很容易就能分解成几种状态的转换。
 
-
+![image](https://github.com/psdfeng/LearnPython/tree/master/2048/MakeDownImages/state.jpg)
 
 state 存储当前状态， state_actions 这个词典变量作为状态转换的规则，它的 key 是状态，value 是返回下一个状态的函数：
-Init: init()
-Game
-Game: game()
-Game
-Win
-GameOver
-Exit
-Win: lambda: not_game('Win')
-Init
-Exit
-Gameover: lambda: not_game('Gameover')
-Init
-Exit
-Exit: 退出循环
++ Init: init()
+    + Game
++ Game: game()
+    + Game
+    + Win
+    + GameOver
+    + Exit
++ Win: lambda: not_game('Win')
+    + Init
+    + Exit
++ Gameover: lambda: not_game('Gameover')
+    + Init
+    + Exit
++ Exit: 退出循环
 状态机会不断循环，直到达到 Exit 终结状态结束程序。
 
-def get_user_action(keyboard):  
-    #阻塞+循环直到获得用户有效输入才返回对应行为：  
-    char = "N"
-    while char not in actions_dict:    
-        char = keyboard.getch()
-    return actions_dict[char]
+get_user_action()获得用户的输入
 
-def transpose(field):
-    #矩阵转置
-    return [list(row) for row in zip(*field)]
+>def get_user_action(keyboard):  
+>    #阻塞+循环直到获得用户有效输入才返回对应行为：  
+>    char = "N"
+>    while char not in actions_dict:    
+>        char = keyboard.getch()
+>    return actions_dict[char]
 
-def invert(field):
-    #矩阵逆转（不是逆矩阵）
-    return [row[::-1] for row in field]
+利用矩阵转至和矩阵逆转可以把Right,Up,Down 转换成Left动作
 
+>def transpose(field):
+>    #矩阵转置
+>    return [list(row) for row in zip(*field)]
+>
+>def invert(field):
+>    #矩阵逆转（不是逆矩阵）
+>    return [row[::-1] for row in field]
 
-class GameField(object):
-    #创建初始化盘的参数
+创建棋盘，设置初始化值构造函数在创建对象的时候调用自动一次，重置棋盘，move动作，判断输赢，绘制游戏界面，随即生成2,4,判断能否移动。
+
+创建游戏界面类
+>class GameField(object):
+>   #创建初始化棋盘的参数
     def __init__(self, height=4, width=4, win=2048):
         self.height = height          #高
         self.width = width            #宽
@@ -203,12 +209,14 @@ class GameField(object):
         else:
             return False
 
-def main(stdscr):
+游戏主逻辑
+
+>def main(stdscr):
     def init():
         #重置游戏棋盘
         game_field.reset()
         return 'Game'
-
+>
     def not_game(state):
         #画出 GameOver 或者Win的界面
         #读取用户输入得到action，判断是重启游戏还是结束游戏
@@ -253,5 +261,7 @@ def main(stdscr):
     while state != 'Exit':
         state = state_actions[state]()
 
-curses.wrapper(main)
+调用主函数
+
+>curses.wrapper(main)
 

@@ -173,8 +173,10 @@ class GameField(object):
         else:
             return False
 
-def main(stdscr):
-    def init():
+游戏主逻辑
+
+>def main(stdscr):
+>    def init():
         #重置游戏棋盘
         game_field.reset()
         return 'Game'
