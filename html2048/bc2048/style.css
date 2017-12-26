@@ -1,0 +1,70 @@
+header {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+header>input {
+    font-size: 20px;
+    color: white;
+    background-color: #605546;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    top: -10px;
+    border-radius: 10px;
+    border: 0;
+}
+
+form {
+    position: relative;
+    left: 38px;
+    top: -10px;
+}
+
+label {
+    font-size: 25px;
+}
+
+label>input {
+    border: 0;
+    width: 100px;
+    font-size: 25px;
+}
+
+table {
+    margin: 0 auto;
+    background-color: #bbada0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+tr {
+    margin: 0;
+}
+
+td {
+    width: 100px;
+    border-style: none;
+    height: 100px;
+    float: left;
+    background-color: #ccc0b3;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+    font-style: bold;
+    overflow: hidden;
+}
+
+p {
+    position: absolute;
+    margin: 0;
+    height: 65px;
+    width: 100px;
+    padding-top: 35px;
+    font-size: 20px;
+    border-radius: 10px;
+}
