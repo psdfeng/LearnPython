@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form action="/west/investigate" method="post">
+        {% csrf_token %} {{form.as_p}}
+        <!-- <input type='text' name='name'> -->
+        <input type="submit" value="Submit">
+    </form>
+
+    {% for person in staff %}
+    <p>{{ person}}</p>
+    {% endfor %}
+
+</body>
+
+</html>

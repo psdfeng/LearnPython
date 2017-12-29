@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+#coding=utf-8
+
 """mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -22,5 +25,9 @@ from mysite.west import views as west_views
 urlpatterns = [
     url(r'^admin/',include(admin.site.urls)),
     url(r'^$', views.hello),
-    url(r'^west/',west_views.hello),
+    # url(r'^west/',west_views.hello),
+    url(r'^west/staff/',west_views.staff),
+    url(r'^west/templay/',west_views.templay),
+    url(r'^west/form/',west_views.form),
+    url(r'^west/investigate',west_views.investigate),
 ]
