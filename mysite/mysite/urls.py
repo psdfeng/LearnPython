@@ -23,7 +23,7 @@ from mysite import views
 from mysite.west import views as west_views
 
 urlpatterns = [
-    url(r'^admin/',include(admin.site.urls)),
+    url(r'^admin/',admin.site.urls),
     url(r'^$', views.hello),
     # url(r'^west/',west_views.hello),
     url(r'^west/staff/',west_views.staff),
