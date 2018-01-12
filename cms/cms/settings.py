@@ -118,3 +118,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 增加这一行
 
 #
 AUTH_USER_MODEL = "focus.NewUser"
+LOGIN_URL = "/focus/login/?next='article_id'"
